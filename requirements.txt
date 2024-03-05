@@ -3,3 +3,15 @@ langchain_community
 langchain
 langchain_experimental
 huggingface_hub
+version=3.28
+build=1
+mkdir ~/temp
+cd ~/temp
+wget https://cmake.org/files/v$version/cmake-$version.$build.tar.gz
+tar -xzvf cmake-$version.$build.tar.gz
+cd cmake-$version.$build/
+./bootstrap
+make -j$(nproc)
+sudo make install
+cmake --version
+CMAKE_ARGS="-DLLAMA_CUBLAS=on -DCMAKE_CUDA_ARCHITECTURES=all-major" FORCE_CMAKE=1 pip install llama-cpp-python --no-cache-dir --force-reinstall --upgrade
