@@ -47,6 +47,7 @@ class StreamHandler(BaseCallbackHandler):
 
 @st.cache_resource
 def create_chain(system_prompt):
+    print(os.getcwd())
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
     llm = LlamaCpp(
         model_path=os.getcwd() + "/llama-2-7b-chat.Q4_K_M.gguf",
