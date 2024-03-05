@@ -3,5 +3,4 @@ langchain_community
 langchain
 langchain_experimental
 huggingface_hub
-cmake --version
 CMAKE_ARGS="-DLLAMA_CUBLAS=on -DCMAKE_CUDA_ARCHITECTURES=all-major" FORCE_CMAKE=1 pip install llama-cpp-python --no-cache-dir --force-reinstall --upgrade
